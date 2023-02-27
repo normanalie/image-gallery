@@ -7,10 +7,10 @@ body{
 	margin:0;
 	padding:0;
 }
-/* .container{
+.container{
 	width:90%
 	margin:10px auto;
-} */
+} 
 .portfolio-menu{
 	text-align:center;
 }
@@ -28,7 +28,7 @@ body{
 }
 
 .portfolio-item{
-	/*width:100%;*/
+	width:100%;
 }
 .portfolio-item .item{
 	/*width:303px;*/
