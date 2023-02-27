@@ -25,3 +25,18 @@ fetch("/api/images")
     .catch(err => {
         console.log(err);
     })
+
+fetch("/api/tags")
+    .then(response => {
+        return response.json();
+    })
+    .then(tags => {
+        for(var tag of tags){
+            var btn = duplicate("basebtn");
+            btn.setAttribute("data-filter", "."+tag);
+            btn.innerHTML = tag;
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    })
