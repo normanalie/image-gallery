@@ -3,11 +3,12 @@
     Original creator of this HTML Bootstrap template: https://bootsnipp.com/snippets/1dPDV
 */
 
-// $('.portfolio-item').isotope({
+        // $('.portfolio-item').isotope({
         //  	itemSelector: '.item',
         //  	layoutMode: 'fitRows'
         //  });
         $('.portfolio-menu ul li').click(function(){
+            console.log("click")
             $('.portfolio-menu ul li').removeClass('active');
             $(this).addClass('active');
             
@@ -17,12 +18,4 @@
             });
             return  false;
         });
-        $(document).ready(function() {
-        var popup_btn = $('.popup-btn');
-        popup_btn.magnificPopup({
-        type : 'image',
-        gallery : {
-            enabled : true
-        }
-        });
-        });
+        
