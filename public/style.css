@@ -35,3 +35,9 @@ body{
 	float:left;
 	margin-bottom:10px;
 }
+
+
+.hidden{
+    display: none;
+    visibility: hidden;
+}
