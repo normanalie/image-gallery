@@ -1,3 +1,26 @@
+function gallery() {
+    var popup_btn = $('.popup-btn');
+    popup_btn.magnificPopup({
+        type : 'image',
+        gallery : {
+            enabled : true
+            }
+    })
+}
+
+function menu(){
+    $('.portfolio-menu ul li').click(function(){
+        $('.portfolio-menu ul li').removeClass('active');
+        $(this).addClass('active');
+        
+        var selector = $(this).attr('data-filter');
+        $('.portfolio-item').isotope({
+            filter:selector
+        });
+        return  false;
+    });
+}
+
 var duplicate_id = 0;
 function duplicate(id){
     var original = document.getElementById(id);
@@ -21,6 +44,7 @@ fetch("/api/images")
             div.getElementsByTagName("img")[0].alt = image.alt;
             div.classList.remove("hidden");
         }
+        gallery();
     })
     .catch(err => {
         console.log(err);
@@ -33,10 +57,14 @@ fetch("/api/tags")
     .then(tags => {
         for(var tag of tags){
             var btn = duplicate("basebtn");
+            btn.classList.remove("active");
             btn.setAttribute("data-filter", "."+tag);
             btn.innerHTML = tag;
         }
+        menu();
     })
     .catch(err => {
         console.log(err);
     })
+
+    
