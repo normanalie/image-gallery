@@ -18,8 +18,4 @@ async function run() {
     }
   }
 
-if(user && pass){
-    run();
-} else {
-    console.log("[MONGODB] - Unable to find DB_USER or DB_PASS in .env");
-}
+module.exports = run;
