@@ -17,11 +17,9 @@ app.get("/api/images", (req, res)=>{
 })
 
 app.get("/api/tags", (req, res)=>{
-    tags = [];
-    for(var elem of db){
-        if(!tags.includes(elem.tag)) tags.push(elem.tag);
-    }
-    res.send(tags);
+    Image.distinct("tag")
+        .then(tags => res.status(200).json(tags))
+        .catch(err => res.status(400).json({err}));
 })
 
 
