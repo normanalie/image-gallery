@@ -39,8 +39,8 @@ fetch("/api/images")
         for(var image of images){
             var div = duplicate('base');
             div.classList.add(image.tag);
-            div.getElementsByTagName("a")[0].href = image.src;
-            div.getElementsByTagName("img")[0].src = image.src;
+            div.getElementsByTagName("a")[0].href = image.url;
+            div.getElementsByTagName("img")[0].src = image.url;
             div.getElementsByTagName("img")[0].alt = image.alt;
             div.classList.remove("hidden");
         }
