@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 const galleryRouter = require("./routes/gallery");
 app.use("/api", galleryRouter);
 
-const userRouter = require("./routes/user");
-app.use("/api/user", userRouter)
+const authRouter = require("./routes/auth");
+app.use("/api/user", authRouter)
 
 
 db_connect()
