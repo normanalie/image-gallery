@@ -14,9 +14,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 
-const apiRouter = require("./routes/api");
+const galleryRouter = require("./routes/gallery");
+app.use("/api", galleryRouter);
 
-app.use("/api", apiRouter);
+const userRouter = require("./routes/user");
+app.use("/api/user", userRouter)
 
 
 db_connect()
