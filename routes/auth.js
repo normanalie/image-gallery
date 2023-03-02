@@ -24,8 +24,25 @@ router.post("/signup", (req, res) => {
         .catch((err)=> res.status(500).json({err}));
 })
 
-router.post("/login", (res, req) => {
-    
+router.post("/login", (req, res) => {
+    User.findOne({email: req.body.email})
+        .then((user) => {
+            if(!user) return res.status(401).json({message: "email not found"});
+            bcrypt.compare(req.body.password, user.password )
+                .then((valid) => {
+                    if(!valid) return res.status(401).json({message: "invalid password"});
+                    res.status(200).json({
+                        userId: user._id,
+                        token: "TOKEN"
+                    });
+                })
+                .catch((err) => {
+                    res.status(400).json({err});
+                });
+        })
+        .catch((err) => {
+            res.status(500).json({err});
+        });
 })
 
 module.exports = router;
